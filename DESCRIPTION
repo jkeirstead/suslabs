@@ -1,0 +1,9 @@
+Package: suslabs
+Title: Analysis tools for the SusLabs NWE project
+Description: This package provides functions for downloading SusLabs data and performing basic exploratory analyses.
+Version: 0.1.0
+Authors: James Keirstead <j.keirstead@imperial.ac.uk> 
+Maintainer: James Keirstead <j.keirstead@imperial.ac.uk>
+Depends: R (>= 3.0.2)
+License: # getOptions('devtools.desc.license')
+LazyData: true
