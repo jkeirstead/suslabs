@@ -4,7 +4,7 @@ suslabs is an R package that provides easy access to environmental monitoring da
 
 ## System requirements
 	
-You must have either [Curl](http://curl.haxx.se/) installed to use this package.
+You must have [Curl](http://curl.haxx.se/) installed to use this package.
 
 In order to restrict access to the SusLabs server, you must manually set the base url of the server in one of two ways:
 
@@ -29,6 +29,13 @@ country <- 'EN'
 house <- 7
 f <- download_data(country, house)
 ```	
+
+By default, `download_data` will retrieve today's data.  However you can choose to select one or more days' worth of data by specifying the dates in ISO format.  The function automatically strips out dates for which there is no data available.  
+
+```r
+## f is a vector of length 2 since there is no data for the first date
+f <- download_data(country, house, c("1900-01-01", "2014-03-27", "2014-03-28"))
+```
 
 The object `f` now gives the path to the download data file, which you can find on your hard drive in R's working directory (unless you've used the optional file argument and specified a different path).  
 
