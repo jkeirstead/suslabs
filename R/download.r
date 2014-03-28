@@ -39,7 +39,7 @@ download_data <- function(country, house, date=Sys.Date(), file) {
     ## Define download params
     params <- data.frame(link, file, stringsAsFactors=FALSE)
     params <- apply(params, 1, as.list)
-    status <- suppressWarnings(lapply(params, function(l) download.file(l$link, dest=l$file, method="curl")))
+    status <- suppressWarnings(lapply(params, function(l) download.file(l$link, destfile=l$file, method="curl")))
     if (status==0) {
         message(sprintf("Successfully saved data to %s", file))
         return(file)

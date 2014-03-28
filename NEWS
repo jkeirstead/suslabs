@@ -3,11 +3,16 @@ suslabs 0.1.1
 
 * added support for user-specified dates in `download_data`
 
+* `plot_sensors` now converts raw data to human-readable units for
+  TEMP and HUMIDITY; the conversions for the other sensors are
+  currently unknown.
+
 suslabs 0.1.0
 ================
 
 * initial release
 
-* provides methods for downloading most recent Suslabs sensor data from a specified house
+* provides methods for downloading most recent Suslabs sensor data
+  from a specified house
 
 * provides methods for quickly plotting Suslabs sensor data

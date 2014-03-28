@@ -127,6 +127,7 @@ xform <- function(df) {
 ##' @details Raw sensor data needs to be transformed before it can be
 ##' interpreted in everyday units.  This method will return \code{raw}
 ##' for the unit if the appropriate transformation is unknown.
+##' @export
 get_sensors <- function() {
     df <- data.frame(id=c("CO2", "PIR", "LIGHT",
                          "SOUND", "HUMIDITY", "TEMP",
