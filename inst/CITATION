@@ -1,0 +1,11 @@
+bibentry("Manual",
+   title = "suslabs: Analysis tools for the SusLabs NWE project",
+   author = person(given="James", family="Keirstead"),
+   organization = "Imperial College London",
+   address      = "London, UK",
+   year   = version$year,
+   url    = "https://github.com/jkeirstead/suslabs/",
+
+   mheader = "To cite suslabs in publications use:",
+
+)
