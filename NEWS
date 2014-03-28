@@ -1,0 +1,13 @@
+suslabs 0.1.1
+================
+
+* added support for user-specified dates in `download_data`
+
+suslabs 0.1.0
+================
+
+* initial release
+
+* provides methods for downloading most recent Suslabs sensor data from a specified house
+
+* provides methods for quickly plotting Suslabs sensor data
