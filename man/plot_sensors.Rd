@@ -2,8 +2,7 @@
 \alias{plot_sensors}
 \title{Plots the sensor data from a file}
 \usage{
-plot_sensors(file, sensors = c("CO2", "PIR", "LIGHT", "SOUND", "HUMIDITY",
-  "TEMP", "ACC_X", "ACC_Y", "ACC_Z"), output, w = 7, h = 7,
+plot_sensors(file, sensors = get_sensors()$id, output, w = 7, h = 7,
   xres = "30 min")
 }
 \arguments{
