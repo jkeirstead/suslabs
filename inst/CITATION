@@ -4,6 +4,7 @@ bibentry("Manual",
    organization = "Imperial College London",
    address      = "London, UK",
    year   = version$year,
+   note = "R package version 0.1.2",
    url    = "https://github.com/jkeirstead/suslabs/",
 
    mheader = "To cite suslabs in publications use:",

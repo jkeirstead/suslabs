@@ -79,7 +79,7 @@ get_download_link <- function(country, house, date) {
     form <- getNodeSet(page, paste0("//form[@action='", datapage, "']"))[[1]]
 
     ## Extract hidden field names and values
-    inputs <- getNodeSet(form, "input")
+    inputs <- getNodeSet(form, "input[@type='hidden']")
     hidden <- data.frame(name=sapply(inputs, xmlGetAttr, "name"),
                          value=sapply(inputs, xmlGetAttr, "value"),
                          stringsAsFactors=FALSE)
