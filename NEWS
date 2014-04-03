@@ -1,6 +1,15 @@
 suslabs 0.1.2
 ================
 
+* added `load_data` function which takes a list of files containing
+  SusLab data and binds it into a single data frame.
+
+* `plot_sensors` has been reworked to accepted `load_data` data frames
+   as input.  The previous version was restricted to plotting a single
+   day's worth of data.
+
+* fixed a minor bug arising from changes to SusLab website
+
 suslabs 0.1.1
 ================
 
