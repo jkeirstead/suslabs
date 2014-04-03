@@ -2,7 +2,7 @@
 
 ##' Plots the sensor data from a file
 ##'
-##' @param file the data file downloaded from \code{download_data}
+##' @param data a data.frame as from \code{load_data}
 ##' @param sensors a character vector giving the names of the sensors to plot
 ##' @param output an output file name; if empty, the plot will be
 ##' shown on screen.  The extension on the file name will determine
@@ -13,15 +13,12 @@
 ##' @param xres the temporal resolution of the x axis
 ##' @import reshape2 ggplot2 scales
 ##' @export
-plot_sensors <- function(file, sensors=get_sensors()$id, output, w=7, h=7, xres="30 min") {
-
-    ## Prepare the data
-    data <- prep_data(file)
+plot_sensors <- function(data, sensors=get_sensors()$id, output, w=7, h=7, xres="30 min") {
 
     ## Factor the sensor column for easier reading
     labels <- with(get_sensors(), paste0(name, " [", unit,"]"))
     ids <- get_sensors()$id
-    data <- transform(data, sensor=factor(sensor, level=ids, labels=labels))
+    data <- transform(data, sensor=factor(sensor, levels=ids, labels=labels))
     
     ## Now make the plot
     gg <- ggplot(data, aes(x=datetime, y=value)) +
@@ -38,6 +35,18 @@ plot_sensors <- function(file, sensors=get_sensors()$id, output, w=7, h=7, xres=
     } else {
         ggsave(output, gg, width=w, height=h)
     }
+}
+
+##' Loads data from multiple files into a single data frame
+##'
+##' @param f a character length of file names
+##' @return a data.frame giving the data in four columns: datetime,
+##' the device id, the sensor name, and the measured value.
+##' @export
+load_data <- function(f) {
+    f <- lapply(f, prep_data)
+    f <- do.call("rbind", f)
+    return(f)
 }
 
 ##' Converts a raw suslabs data sheet into a more useful format

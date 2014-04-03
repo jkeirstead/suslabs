@@ -2,12 +2,11 @@
 \alias{plot_sensors}
 \title{Plots the sensor data from a file}
 \usage{
-plot_sensors(file, sensors = get_sensors()$id, output, w = 7, h = 7,
+plot_sensors(data, sensors = get_sensors()$id, output, w = 7, h = 7,
   xres = "30 min")
 }
 \arguments{
-  \item{file}{the data file downloaded from
-  \code{download_data}}
+  \item{data}{a data.frame as from \code{load_data}}
 
   \item{sensors}{a character vector giving the names of the
   sensors to plot}

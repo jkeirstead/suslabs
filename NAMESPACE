@@ -1,5 +1,6 @@
 export(download_data)
 export(get_sensors)
+export(load_data)
 export(plot_sensors)
 export(set_base_url)
 import(RCurl)

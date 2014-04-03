@@ -37,22 +37,26 @@ By default, `download_data` will retrieve today's data.  However you can choose 
 f <- download_data(country, house, c("1900-01-01", "2014-03-27", "2014-03-28"))
 ```
 
-The object `f` now gives the path to the download data file, which you can find on your hard drive in R's working directory (unless you've used the optional file argument and specified a different path).  
+The object `f` now gives the path to the download data file, which you can find on your hard drive in R's working directory (unless you've used the optional file argument and specified a different path).  This data can be automatically arranged into a single data.frame with `load_data`:
+
+```r
+data <- load_data(f)
+```
 
 We can then plot this data.  The first case shows the plot on the screen:
 
 ```r
 ## Show all the sensors
-plot_sensors(f)
+plot_sensors(data)
 
 ## Or just a few of them
-plot_sensors(f, sensors=c("CO2", "LIGHT"))
+plot_sensors(data, sensors=c("CO2", "LIGHT"))
 ```
 
 You can also save the results to a file as shown below.  Note that the format of the resulting graphics file is determined by the extension of the `output` file.
 
 ```r
-plot_sensors(f, output='plot.pdf')
+plot_sensors(data, output='plot.pdf')
 ```
 
 There are other plotting options available for setting the plot size (when writing to a file) and the temporal resolution of the x-axis.  You can get full details on this, or other functions, by typing `?function` at the command line.  For example, the following shows you the full options for the `plot_sensors` method.
@@ -63,4 +67,4 @@ There are other plotting options available for setting the plot size (when writi
 
 ## Limitations
 
-The package currently plots the data in its raw form.  No corrections have been made to convert, for example, `TEMPERATURE` values into degrees Celsius.  This will be introduced in future versions.
+The package will attempt to transform data from the raw sensor values to real measurements, for example, converting `TEMP` values into degrees Celsius.  However at present these transformations are only defined for `TEMP` and `HUMIDITY`.
